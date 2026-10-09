@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Results Archive | UPSC, SSC & Banking Exams</title>
+  <meta name="description" content="Browse an exam results archive with exam updates, result documents and PDF resources for UPSC, SSC and banking examinations.">
+  <meta name="robots" content="index,follow">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #252525;
+      background: #fff;
+    }
+    header {
+      background: #0875bd;
+      color: white;
+      padding: 20px 5%;
+    }
+    .brand { font-size: 27px; font-weight: bold; }
+    .tagline { margin-top: 6px; font-size: 14px; }
+    nav {
+      background: #07558c;
+      padding: 12px 5%;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 22px;
+      font-size: 15px;
+    }
+    main {
+      max-width: 1150px;
+      margin: 25px auto;
+      padding: 0 18px;
+      min-height: 65vh;
+    }
+    .breadcrumb {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: 28px; margin-bottom: 12px; }
+    .intro { line-height: 1.6; color: #555; }
+    .search {
+      width: 100%;
+      max-width: 480px;
+      padding: 12px;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      margin: 18px 0;
+      font-size: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #c9c9c9;
+      padding: 14px 12px;
+      text-align: left;
+    }
+    th { background: #f0f3f6; }
+    tbody tr:nth-child(even) { background: #fafafa; }
+    td a { color: #0672b9; }
+    .notice {
+      background: #fff8e5;
+      border: 1px solid #e9d79a;
+      padding: 12px;
+      margin: 18px 0;
+      line-height: 1.5;
+    }
+    footer {
+      background: #073b65;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      line-height: 1.7;
+    }
+    footer a { color: white; }
+    @media (max-width: 600px) {
+      .brand { font-size: 22px; }
+      nav a { display: inline-block; margin: 5px 12px 5px 0; }
+      th, td { padding: 9px 6px; font-size: 13px; }
+      h1 { font-size: 23px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">Exam Results Archive</div>
+    <div class="tagline">Exam updates, result documents and study resources</div>
+  </header>
+
+  <nav>
+    <a href="./">Home</a>
+    <a href="#results">Exam Resources</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <div class="breadcrumb">Home &gt; Exam Results Archive</div>
+
+    <h1>Exam Results Archive</h1>
+    <p class="intro">
+      Find exam-related documents and resources for UPSC, SSC and banking
+      examinations. Check each document's description and date before opening it.
+    </p>
+
+    <div class="notice">
+      <strong>Important:</strong> This is an independently maintained website.
+      It is not affiliated with UPSC or any government department. Documents
+      created by the website owner are unofficial and must not be treated as
+      official examination results.
+    </div>
+
+    <h2 id="results">Latest Exam Resources</h2>
+    <input
+      class="search"
+      id="searchBox"
+      type="search"
+      placeholder="Search exam resources..."
+      aria-label="Search exam resources"
+    >
+
+    <table>
+      <thead>
+        <tr>
+          <th>Exam Name / Document</th>
+          <th>Download / Details</th>
+          <th>Date of Upload</th>
+        </tr>
+      </thead>
+      <tbody id="resultsBody">
+        <tr>
+          <td>UPSC Mains 2026 - Personal PDF</td>
+          <td>PDF not uploaded yet</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>SSC CGL Exam Resources</td>
+          <td>Coming soon</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Banking Exam Resources</td>
+          <td>Coming soon</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p id="noResults" hidden>No matching resources found.</p>
+
+    <section id="about">
+      <h2>About This Website</h2>
+      <p>
+        This website organizes independently prepared exam resources and
+        documents. Always verify official results and announcements on the
+        relevant official examination website.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>For corrections or document enquiries, contact the website owner.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>Exam Results Archive</strong></div>
+    <div>Independent exam resources website</div>
+    <div>Not an official government website.</div>
+    <div>© 2026 Exam Results Archive</div>
+  </footer>
+
+  <script>
+    const searchBox = document.getElementById("searchBox");
+    const rows = Array.from(
+      document.querySelectorAll("#resultsBody tr")
+    );
+    const noResults = document.getElementById("noResults");
+
+    searchBox.addEventListener("input", function () {
+      const query = this.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      rows.forEach(function (row) {
+        const matches = row.textContent.toLowerCase().includes(query);
+        row.hidden = !matches;
+        if (matches) visibleCount++;
+      });
+
+      noResults.hidden = visibleCount !== 0;
+    });
+  </script>
+</body>
+</html>
